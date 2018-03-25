@@ -1,0 +1,8 @@
+{
+  "name": "MachineMentorApp",
+  "app_id": "facbc1d9",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
