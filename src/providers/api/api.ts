@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
  */
 @Injectable()
 export class Api {
-  url: string = 'http://machinementorapi13.azurewebsites.net/api';
+  url: string = 'http://machinementorapi.azurewebsites.net/api';
 
   constructor(public http: HttpClient) {
   }
