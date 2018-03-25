@@ -1,18 +1,18 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ item.name }}</ion-title>
+    <ion-title>{{ item.Name }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.profilePic + ')'">
+  <div class="item-profile" text-center #profilePic style.background-image="url('https://cdn4.iconfinder.com/data/icons/science-and-technology-1-17/65/28-512.png')">
   </div>
 
   <div class="item-detail" padding>
-    <h2>{{item.name}}</h2>
-    <p>{{item.about}}</p>
+    <h2>{{item.Name}}</h2>
+    <p>{{item.Description}}</p>
   </div>
 </ion-content>

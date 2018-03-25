@@ -3,6 +3,7 @@ import { IonicPage, ModalController, NavController } from 'ionic-angular';
 
 import { Item } from '../../models/item';
 import { Items } from '../../providers/providers';
+import { User } from '../../providers/providers';
 
 @IonicPage()
 @Component({
@@ -12,14 +13,16 @@ import { Items } from '../../providers/providers';
 export class ListMasterPage {
   currentItems: Item[];
 
-  constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController) {
-    this.currentItems = this.items.query();
+  constructor(public navCtrl: NavController, public items: Items, public user: User, public modalCtrl: ModalController) {
   }
 
   /**
    * The view loaded, let's query our items for the list
    */
   ionViewDidLoad() {
+    this.items.query({ taggerId: this.user._user.Id }).subscribe((resp :any)=>{
+        this.currentItems = resp.Data;
+    });
   }
 
   /**
@@ -48,6 +51,12 @@ export class ListMasterPage {
    */
   openItem(item: Item) {
     this.navCtrl.push('ItemDetailPage', {
+      item: item
+    });
+  }
+
+  startTagging(item) {
+    this.navCtrl.push('TagResponsePage', {
       item: item
     });
   }
