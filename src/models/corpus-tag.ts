@@ -1,5 +1,5 @@
 
-export class Item {
+export class CorpusTagModel {
 
   constructor(fields: any) {
     // Quick and dirty extend/assign fields to this model
@@ -11,6 +11,6 @@ export class Item {
 
 }
 
-export interface Item {
+export interface CorpusTagModel {
   [prop: string]: any;
 }

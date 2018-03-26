@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 
+import { CorpusTagModel } from '../../models/corpus-tag';
 import { TagResponse } from '../../providers/providers';
 import { CorpusTag } from '../../providers/providers';
 import { CorpusDocument } from '../../providers/providers';
@@ -16,7 +17,7 @@ import { MainPage } from '../pages';
 export class TagResponsePage {
   item: any;
   tagResponseModel: any;
-  corpusTagsModel: any;
+  corpusTagsModel: CorpusTagModel[];
   corpusDocumentModel: any;
 
   constructor(public navCtrl: NavController, navParams: NavParams
@@ -35,19 +36,29 @@ export class TagResponsePage {
         if (resp.Data) {
           this.tagResponseModel = resp.Data;
 
-          if (this.tagResponseModel)
-            this.corpusDocument.get(this.tagResponseModel.CorpusDocumentId)
-              .subscribe((resp: any) => {
-                this.corpusDocumentModel = resp.Data;
-              });
-
-          this.corpusTag.get(this.item.Id)
-            .subscribe((resp: any) => {
-              this.corpusTagsModel = resp.Data;
-            });
+          this.loadDocumentAndTags();
         } else {
           this.navCtrl.push(MainPage);
         }
+      });
+  }
+
+  loadDocumentAndTags() {
+    if (this.tagResponseModel)
+      this.corpusDocument.get(this.tagResponseModel.CorpusDocumentId)
+        .subscribe((resp: any) => {
+          this.corpusDocumentModel = resp.Data;
+        });
+
+    this.corpusTag.get(this.item.Id)
+      .subscribe((resp: any) => {
+        this.corpusTagsModel = resp.Data;
+
+        this.corpusTagsModel.forEach((tag) => {
+          if (this.tagResponseModel.CorpusTagId != 0 && tag.Id != this.tagResponseModel.CorpusTagId) {
+            tag.Color = 'light';
+          }
+        });
       });
   }
 
@@ -65,5 +76,31 @@ export class TagResponsePage {
         toast.present();
       }
     });
+  }
+
+  iterateForwardTagResponse() {
+    this.tagResponse.getIteration(this.item.Id, this.user._user.Id, this.tagResponseModel.Id, 1)
+      .subscribe((resp: any) => {
+        if (resp.Data) {
+          this.tagResponseModel = resp.Data;
+
+          this.loadDocumentAndTags();
+        } else {
+          this.navCtrl.push(MainPage);
+        }
+      });
+  }
+
+  iterateBackwardsTagResponse() {
+    this.tagResponse.getIteration(this.item.Id, this.user._user.Id, this.tagResponseModel.Id, -1)
+      .subscribe((resp: any) => {
+        if (resp.Data) {
+          this.tagResponseModel = resp.Data;
+
+          this.loadDocumentAndTags();
+        } else {
+          this.navCtrl.push(MainPage);
+        }
+      });
   }
 }

@@ -21,13 +21,13 @@
     </div>
     <div class="spacer" style="width:100%;height:10px;" id="tag-spacer3"></div>
     <div id="tag-container3" class="center">
-      <button id="tag-button7" ion-button color="dark" small>
+      <button id="tag-button7" (click)="iterateBackwardsTagResponse()" ion-button color="dark" medium>
         <ion-icon name="rewind"></ion-icon>
       </button>
-      <button id="tag-button10" ion-button color="dark" small>
+      <!-- <button id="tag-button10" ion-button color="dark" small>
         <ion-icon name="skip-forward"></ion-icon>
-      </button>
-      <button id="tag-button12" ion-button color="dark" small>
+      </button> -->
+      <button id="tag-button12" (click)="iterateForwardTagResponse()" ion-button color="dark" medium>
         <ion-icon name="fastforward"></ion-icon>
       </button>
     </div>
