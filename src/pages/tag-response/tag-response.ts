@@ -25,9 +25,14 @@ export class TagResponsePage {
   }
 
   ionViewWillEnter() {
+    this.fetchNextTagResponse();
+  }
+
+  fetchNextTagResponse() {
     this.tagResponse.getNext(this.item.Id, this.user._user.Id)
       .subscribe((resp: any) => {
         this.tagResponseModel = resp.Data;
+        console.log(this.tagResponseModel);
 
         if (this.tagResponseModel)
           this.corpusDocument.get(this.tagResponseModel.CorpusDocumentId)
@@ -44,6 +49,9 @@ export class TagResponsePage {
 
   submitTagResponse(tagId) {
     this.tagResponseModel.CorpusTagId = tagId;
-    this.tagResponse.submitResponse(this.tagResponseModel);
+    this.tagResponse.submitResponse(this.tagResponseModel).subscribe((resp: any) => {
+
+    });
+    this.fetchNextTagResponse();
   }
 }
