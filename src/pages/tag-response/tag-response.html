@@ -6,27 +6,30 @@
 
 </ion-header>
 
-<ion-content padding *ngIf="tagResponseModel">
-  <div class="spacer" style="width:100%;height:56px;" id="tag-spacer2"></div>
+<ion-content padding>
   <h2 id="tag-heading1" *ngIf="corpusDocumentModel" style="color:#0B7F8F;">
     {{ corpusDocumentModel.Text }}
   </h2>
-  <div class="spacer" style="width:100%;height:36px;" id="tag-spacer2"></div>
-  <div id="tag-corpus" class="center" *ngIf="corpusTagsModel">
-    <button ion-button *ngFor="let tag of corpusTagsModel" color="{{tag.Color}}" (click)="submitTagResponse(tag.Id)">
-      <ion-icon name="{{tag.Icon}}"> {{tag.Tag}}</ion-icon>
-    </button>
-  </div>
-  <div class="spacer" style="width:100%;height:39px;" id="tag-spacer3"></div>
-  <div id="tag-container3" class="center">
-    <button id="tag-button7" ion-button color="dark" small>
-      <ion-icon name="rewind"></ion-icon>
-    </button>
-    <button id="tag-button10" ion-button color="dark" small>
-      <ion-icon name="skip-forward"></ion-icon>
-    </button>
-    <button id="tag-button12" ion-button color="dark" small>
-      <ion-icon name="fastforward"></ion-icon>
-    </button>
-  </div>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div id="tag-corpus" class="center" *ngIf="corpusTagsModel">
+      <button ion-button *ngFor="let tag of corpusTagsModel" color="{{tag.Color}}" (click)="submitTagResponse(tag.Id)">
+        <ion-icon name="{{tag.Icon}}"> {{tag.Tag}}</ion-icon>
+      </button>
+    </div>
+    <div class="spacer" style="width:100%;height:10px;" id="tag-spacer3"></div>
+    <div id="tag-container3" class="center">
+      <button id="tag-button7" ion-button color="dark" small>
+        <ion-icon name="rewind"></ion-icon>
+      </button>
+      <button id="tag-button10" ion-button color="dark" small>
+        <ion-icon name="skip-forward"></ion-icon>
+      </button>
+      <button id="tag-button12" ion-button color="dark" small>
+        <ion-icon name="fastforward"></ion-icon>
+      </button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

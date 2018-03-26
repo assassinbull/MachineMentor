@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 
 import { TagResponse } from '../../providers/providers';
 import { CorpusTag } from '../../providers/providers';
 import { CorpusDocument } from '../../providers/providers';
 import { Items } from '../../providers/providers';
 import { User } from '../../providers/providers';
+import { MainPage } from '../pages';
 
 @IonicPage()
 @Component({
@@ -19,7 +20,7 @@ export class TagResponsePage {
   corpusDocumentModel: any;
 
   constructor(public navCtrl: NavController, navParams: NavParams
-    , items: Items, public user: User//, public toastCtrl: ToastController    
+    , items: Items, public user: User, public toastCtrl: ToastController
     , public tagResponse: TagResponse, public corpusTag: CorpusTag, public corpusDocument: CorpusDocument) {
     this.item = navParams.get('item');
   }
@@ -31,26 +32,39 @@ export class TagResponsePage {
   fetchNextTagResponse() {
     this.tagResponse.getNext(this.item.Id, this.user._user.Id)
       .subscribe((resp: any) => {
-        this.tagResponseModel = resp.Data;
-        console.log(this.tagResponseModel);
+        if (resp.Data) {
+          this.tagResponseModel = resp.Data;
+          console.log(this.tagResponseModel);
 
-        if (this.tagResponseModel)
-          this.corpusDocument.get(this.tagResponseModel.CorpusDocumentId)
+          if (this.tagResponseModel)
+            this.corpusDocument.get(this.tagResponseModel.CorpusDocumentId)
+              .subscribe((resp: any) => {
+                this.corpusDocumentModel = resp.Data;
+              });
+
+          this.corpusTag.get(this.item.Id)
             .subscribe((resp: any) => {
-              this.corpusDocumentModel = resp.Data;
+              this.corpusTagsModel = resp.Data;
             });
-      });
-
-    this.corpusTag.get(this.item.Id)
-      .subscribe((resp: any) => {
-        this.corpusTagsModel = resp.Data;
+        } else {
+          this.navCtrl.push(MainPage);
+        }
       });
   }
 
   submitTagResponse(tagId) {
     this.tagResponseModel.CorpusTagId = tagId;
     this.tagResponse.submitResponse(this.tagResponseModel).subscribe((resp: any) => {
-      this.fetchNextTagResponse();
+      if (resp.Status == 'success')
+        this.fetchNextTagResponse();
+      else {
+        let toast = this.toastCtrl.create({
+          message: resp.Messages[0].Value,
+          duration: 3000,
+          position: 'top'
+        });
+        toast.present();
+      }
     });
   }
 }
