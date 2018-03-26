@@ -34,7 +34,6 @@ export class TagResponsePage {
       .subscribe((resp: any) => {
         if (resp.Data) {
           this.tagResponseModel = resp.Data;
-          console.log(this.tagResponseModel);
 
           if (this.tagResponseModel)
             this.corpusDocument.get(this.tagResponseModel.CorpusDocumentId)
