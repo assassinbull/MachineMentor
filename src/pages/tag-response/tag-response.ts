@@ -50,8 +50,7 @@ export class TagResponsePage {
   submitTagResponse(tagId) {
     this.tagResponseModel.CorpusTagId = tagId;
     this.tagResponse.submitResponse(this.tagResponseModel).subscribe((resp: any) => {
-
+      this.fetchNextTagResponse();
     });
-    this.fetchNextTagResponse();
   }
 }
