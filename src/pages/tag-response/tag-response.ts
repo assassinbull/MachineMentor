@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, MenuController, NavParams, ToastController } from 'ionic-angular';
 
 import { CorpusTagModel } from '../../models/corpus-tag';
 import { TagResponse } from '../../providers/providers';
@@ -20,11 +20,19 @@ export class TagResponsePage {
   corpusTagsModel: CorpusTagModel[];
   corpusDocumentModel: any;
 
-  constructor(public navCtrl: NavController, navParams: NavParams
+  constructor(private menu: MenuController, public navCtrl: NavController, navParams: NavParams
     , items: Items, public user: User, public toastCtrl: ToastController
     , public tagResponse: TagResponse, public corpusTag: CorpusTag, public corpusDocument: CorpusDocument) {
     this.item = navParams.get('item');
   }
+
+  ionViewDidEnter() {
+    this.menu.swipeEnable(false);
+  }
+
+  ionViewWillLeave() {
+    this.menu.swipeEnable(true);
+   }
 
   ionViewWillEnter() {
     this.fetchNextTagResponse();
