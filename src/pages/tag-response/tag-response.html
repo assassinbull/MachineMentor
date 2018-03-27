@@ -6,7 +6,7 @@
 
 </ion-header>
 
-<ion-content padding>
+<ion-content padding on-swipe-right="iterateBackwardsTagResponse()" on-swipe-left="iterateForwardTagResponse()">
   <h2 id="tag-heading1" *ngIf="corpusDocumentModel" style="color:#0B7F8F;">
     {{ corpusDocumentModel.Text }}
   </h2>
