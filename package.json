@@ -41,6 +41,7 @@
   },
   "description": "An Ionic project",
   "config": {
-    "ionic_copy": "./config/copy.config.js"
+    "ionic_copy": "./config/copy.config.js",
+    "ionic_source_map_type": "source-map"
   }
 }
