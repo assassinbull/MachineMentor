@@ -20,9 +20,18 @@ export class ListMasterPage {
    * The view loaded, let's query our items for the list
    */
   ionViewDidLoad() {
-    this.items.query({ taggerId: this.user._user.Id }).subscribe((resp :any)=>{
-        this.currentItems = resp.Data;
+    this.loadSubscribedProjects();
+  }
+
+  loadSubscribedProjects() {
+    this.items.getProjects({ taggerId: this.user._user.Id }).subscribe((resp: any) => {
+      this.currentItems = resp.Data;
     });
+  }
+
+  refreshPage(refresher) {
+    this.loadSubscribedProjects();
+    refresher.complete();
   }
 
   /**

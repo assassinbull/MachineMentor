@@ -13,7 +13,10 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-refresher (ionRefresh)="refreshPage($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
   <ion-list>
     <ion-item-sliding *ngFor="let item of currentItems">
       <button ion-item (click)="openItem(item)">
@@ -22,7 +25,7 @@
         </ion-avatar>
         <h2>{{item.Name}}</h2>
         <p>{{item.Description}}</p>
-        <ion-note item-end *ngIf="item.note">{{item.MaxDocumentsForEachTagger}}</ion-note>
+        <ion-note item-end>{{(item.CorpusTargetCompletionPercentage * 100).toFixed(2)}}% / {{item.TargetCorpusDocumentAssignmentCount}}</ion-note>
       </button>
 
       <ion-item-options>

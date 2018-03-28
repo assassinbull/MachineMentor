@@ -17,6 +17,14 @@ export class Items {
     return this.api.get('CorpusProject', params);
   }
 
+  getProjects(params?: any): any {
+    return this.api.get('CorpusProject', params);
+  }
+
+  getProjectSubscriptions(params?: any): any {
+    return this.api.get('CorpusProjectSubscription', params);
+  }
+
   add(item: Item) {
   }
 

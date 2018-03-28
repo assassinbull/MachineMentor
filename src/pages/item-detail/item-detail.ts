@@ -10,9 +10,16 @@ import { Items } from '../../providers/providers';
 })
 export class ItemDetailPage {
   item: any;
+  activeProjectSubscriptions: any[];
 
-  constructor(public navCtrl: NavController, navParams: NavParams, items: Items) {
+  constructor(public navCtrl: NavController, navParams: NavParams, public items: Items) {
     this.item = navParams.get('item') || items.defaultItem;
+  }
+
+  ionViewDidLoad() {
+    this.items.getProjectSubscriptions({ projectId: this.item.Id }).subscribe((resp: any) => {
+      this.activeProjectSubscriptions = resp.Data;
+    });
   }
 
 }

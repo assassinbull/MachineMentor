@@ -9,6 +9,62 @@ page-item-detail {
   .item-detail {
     width: 100%;
     background: white;
-    position: absolute;
+    text-align: center;
+  }
+
+  $baseColor: #398B93;
+  $borderRadius: 10px;
+  $imageBig: 100px;
+  $imageSmall: 60px;
+  $padding: 10px;
+
+  body {
+    background-color: lighten($baseColor, 30%);
+    * { box-sizing: border-box; }
+  }
+
+  .table-header {
+    background-color: darken($baseColor, 5%);
+    color: white;
+    font-size: 1.5em;
+    padding: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  img {
+    border-radius: 50%;
+    height: $imageSmall;
+    width: $imageSmall;
+  }
+
+  table {
+      width: 100%;
+      
+      td, th { 
+        color: darken($baseColor, 10%);
+        padding: $padding; 
+      }
+      
+      td {
+        text-align: center;
+        vertical-align: middle;
+        
+        // &:last-child {
+        //     font-size: 0.95em;
+        //     line-height: 1.4;
+        //     text-align: left;
+        // }
+      }
+      
+      th { 
+        background-color: lighten($baseColor, 50%);
+        font-weight: 300;
+      }
+      
+      tr {     
+        &:nth-child(2n) { background-color: white; }
+        &:nth-child(2n+1) { background-color: lighten($baseColor, 55%) }
+      }
   }
 }
