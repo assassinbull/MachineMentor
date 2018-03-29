@@ -38,12 +38,12 @@ export class MyApp {
     // { title: 'Cards', component: 'CardsPage' },
     // { title: 'Content', component: 'ContentPage' },
     { title: 'Login', component: 'LoginPage' },
-    { title: 'Signup', component: 'SignupPage' },
+    { title: 'Signup', component: 'SignupPage' }
     // { title: 'Master Detail', component: 'ListMasterPage' },
     // { title: 'Menu', component: 'MenuPage' },
     // { title: 'Search', component: 'SearchPage' },
     // { title: 'Tag Response', component: 'TagResponsePage' },
-    { title: 'Settings', component: 'SettingsPage' }
+    // { title: 'Settings', component: 'SettingsPage' }
   ]
 
   constructor(private translate: TranslateService, platform: Platform, settings: Settings
