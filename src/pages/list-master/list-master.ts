@@ -26,9 +26,11 @@ export class ListMasterPage {
   }
 
   loadProjectsForTagger() {
-    this.items.getProjects({ taggerId: this.user._user.Id }).subscribe((resp: any) => {
-      this.currentItems = resp.Data;
-    });
+    if (this.user._user)
+      this.items.getProjects({ taggerId: this.user._user.Id }).subscribe((resp: any) => {
+        this.currentItems = resp.Data;
+      }, (err) => {
+      });
   }
 
   refreshPage(refresher) {
