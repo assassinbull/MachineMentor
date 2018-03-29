@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, MenuController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, MenuController, NavParams } from 'ionic-angular';
 
 import { CorpusTagModel } from '../../models/corpus-tag';
 import { TagResponse } from '../../providers/providers';
@@ -7,6 +7,7 @@ import { CorpusTag } from '../../providers/providers';
 import { CorpusDocument } from '../../providers/providers';
 import { Items } from '../../providers/providers';
 import { User } from '../../providers/providers';
+import { Common } from '../../providers/providers';
 import { MainPage } from '../pages';
 
 @IonicPage()
@@ -21,7 +22,7 @@ export class TagResponsePage {
   corpusDocumentModel: any;
 
   constructor(private menu: MenuController, public navCtrl: NavController, navParams: NavParams
-    , items: Items, public user: User, public toastCtrl: ToastController
+    , items: Items, public user: User, public common: Common
     , public tagResponse: TagResponse, public corpusTag: CorpusTag, public corpusDocument: CorpusDocument) {
     this.item = navParams.get('item');
   }
@@ -76,12 +77,7 @@ export class TagResponsePage {
       if (resp.Status == 'success')
         this.fetchNextTagResponse();
       else {
-        let toast = this.toastCtrl.create({
-          message: resp.Messages[0].Value,
-          duration: 3000,
-          position: 'top'
-        });
-        toast.present();
+        this.common.popToastErrResp(resp);
       }
     });
   }

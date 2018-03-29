@@ -4,6 +4,7 @@ import { IonicPage, ModalController, NavController } from 'ionic-angular';
 import { Item } from '../../models/item';
 import { Items } from '../../providers/providers';
 import { User } from '../../providers/providers';
+import { Common } from '../../providers/providers';
 
 @IonicPage()
 @Component({
@@ -13,24 +14,25 @@ import { User } from '../../providers/providers';
 export class ListMasterPage {
   currentItems: Item[];
 
-  constructor(public navCtrl: NavController, public items: Items, public user: User, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController
+    , public user: User, public items: Items, private common: Common) {
   }
 
   /**
    * The view loaded, let's query our items for the list
    */
   ionViewDidLoad() {
-    this.loadSubscribedProjects();
+    this.loadProjectsForTagger();
   }
 
-  loadSubscribedProjects() {
+  loadProjectsForTagger() {
     this.items.getProjects({ taggerId: this.user._user.Id }).subscribe((resp: any) => {
       this.currentItems = resp.Data;
     });
   }
 
   refreshPage(refresher) {
-    this.loadSubscribedProjects();
+    this.loadProjectsForTagger();
     refresher.complete();
   }
 
@@ -67,6 +69,16 @@ export class ListMasterPage {
   startTagging(item) {
     this.navCtrl.push('TagResponsePage', {
       item: item
+    });
+  }
+
+  subscribeProject(item) {
+    this.items.subscribeProject({ corpusProjectId: item.Id, corpusTaggerId: this.user._user.Id }).subscribe((resp: any) => {
+      this.common.popToast("Subscription completed.");
+      this.loadProjectsForTagger();
+    }, (err) => {
+      // Unable to subscribe
+      this.common.popToast("Subscription failed!");
     });
   }
 }

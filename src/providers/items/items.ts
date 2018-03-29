@@ -25,6 +25,10 @@ export class Items {
     return this.api.get('CorpusProjectSubscription', params);
   }
 
+  subscribeProject(subscription: any): any {
+    return this.api.post('CorpusProjectSubscription', subscription);
+  }
+
   add(item: Item) {
   }
 

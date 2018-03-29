@@ -6,7 +6,7 @@ import { Api } from '../api/api';
 export class User {
   _user: any;
 
-  constructor(public api: Api, private storage: Storage) { }
+  constructor(public api: Api, public storage: Storage) { }
 
   /**
    * Send a POST request to our login endpoint with the data
@@ -47,6 +47,19 @@ export class User {
     });
 
     return seq;
+  }
+
+  autoLogin() {
+    this.storage.get('account').then((val) => {
+      if (val != null) {
+        let account = JSON.parse(val);
+
+        this.login(account).subscribe((resp: any) => {
+          if (resp.Status == 'success') {
+          }
+        });
+      }
+    });
   }
 
   /**

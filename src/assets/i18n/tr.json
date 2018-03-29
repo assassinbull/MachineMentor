@@ -6,7 +6,7 @@
   "EMAIL": "Email",
   "LOGIN": "Giriş yap",
   "SIGNUP": "Kayıt ol",
-  "TAB1_TITLE": "Öğeler",
+  "TAB1_TITLE": "Projeler",
   "TAB2_TITLE": "Arama",
   "TAB3_TITLE": "Ayarlar",
   "MAP_TITLE": "Harita",
@@ -33,5 +33,10 @@
   "ITEM_CREATE_TITLE": "Yeni Öğe",
   "ITEM_CREATE_CHOOSE_IMAGE": "Yeni Görsel",
   "CARDS_TITLE": "Sosyal",
-  "SEARCH_TITLE": "Arama"
+  "SEARCH_TITLE": "Arama",
+  
+  "START_TAGGING": "BAŞLA",
+  "SUBSCRIBE_PROJECT": "ÜYE OL",
+  "SETTINGS_SKIP-UNRESPONDED-DOCUMENT": "Cevapsızları Geç",
+  "SETTINGS_AUTO-LOGIN": "Otomatik Login"
 }

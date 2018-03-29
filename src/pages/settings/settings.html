@@ -11,6 +11,17 @@
   <form [formGroup]="form" *ngIf="settingsReady">
     <ion-list *ngIf="page == 'main'">
       <ion-item>
+        <ion-label>{{ 'SETTINGS_SKIP-UNRESPONDED-DOCUMENT' | translate }}</ion-label>
+        <ion-toggle formControlName="skipUnrespondedDocument"></ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>{{ 'SETTINGS_AUTO-LOGIN' | translate }}</ion-label>
+        <ion-toggle formControlName="autoLogin"></ion-toggle>
+      </ion-item>
+
+      <!--
+      <ion-item>
         <ion-label>{{ 'SETTINGS_OPTION1' | translate }}</ion-label>
         <ion-toggle formControlName="option1"></ion-toggle>
       </ion-item>
@@ -32,6 +43,7 @@
       <button ion-item [navPush]="subSettings" [navParams]="profileSettings">
         {{ 'SETTINGS_PROFILE_BUTTON' | translate }}
       </button>
+       -->
     </ion-list>
 
     <ion-list *ngIf="page == 'profile'">

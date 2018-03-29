@@ -3,11 +3,11 @@
   <ion-navbar>
     <ion-title>{{ 'LIST_MASTER_TITLE' | translate }}</ion-title>
 
-    <ion-buttons end>
+    <!-- <ion-buttons end>
       <button ion-button icon-only (click)="addItem()">
         <ion-icon name="add"></ion-icon>
       </button>
-    </ion-buttons>
+    </ion-buttons> -->
   </ion-navbar>
 
 </ion-header>
@@ -29,8 +29,11 @@
       </button>
 
       <ion-item-options>
-        <button ion-button color="positive" (click)="startTagging(item)">
-          {{ 'START_TAGGING' | translate }}
+        <button *ngIf="item.IsSubscribed == 0" ion-button color="positive" (click)="subscribeProject(item)">
+          {{ 'SUBSCRIBE_PROJECT' | translate }}
+        </button>
+        <button *ngIf="item.IsSubscribed == 1" ion-button color="secondary" (click)="startTagging(item)">
+          {{ "START_TAGGING" | translate }}
         </button>
       </ion-item-options>
     </ion-item-sliding>

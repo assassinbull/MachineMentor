@@ -8,7 +8,7 @@
   "LOGIN": "Sign in",
   "SIGNUP": "Sign up",
 
-  "TAB1_TITLE": "Items",
+  "TAB1_TITLE": "Projects",
   "TAB2_TITLE": "Search",
   "TAB3_TITLE": "Settings",
 
@@ -66,5 +66,8 @@
   "SEARCH_TITLE": "Search",
   "SEARCH_PLACEHOLDER": "Search the items list, e.g. \"Donald Duck\"",
 
-  "START_TAGGING": "START"
+  "SUBSCRIBE_PROJECT": "SUBSCRIBE",
+  "START_TAGGING": "START",
+  "SETTINGS_SKIP-UNRESPONDED-DOCUMENT": "Skip Unresponded",
+  "SETTINGS_AUTO-LOGIN": "Auto Login"
 }

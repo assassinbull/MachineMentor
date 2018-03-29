@@ -17,6 +17,7 @@ import { User } from '../providers/providers';
 import { TagResponse } from '../providers/tag-response/tag-response';
 import { CorpusTag } from '../providers/corpus-tag/corpus-tag';
 import { CorpusDocument } from '../providers/corpus-document/corpus-document';
+import { Common } from '../providers/common/common';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -72,7 +73,8 @@ export function provideSettings(storage: Storage) {
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     TagResponse,
     CorpusTag,
-    CorpusDocument
+    CorpusDocument,
+    Common
   ]
 })
 export class AppModule { }

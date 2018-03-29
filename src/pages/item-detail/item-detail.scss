@@ -12,7 +12,7 @@ page-item-detail {
     text-align: center;
   }
 
-  $baseColor: #398B93;
+  $baseColor: #488aff;
   $borderRadius: 10px;
   $imageBig: 100px;
   $imageSmall: 60px;
@@ -44,6 +44,10 @@ page-item-detail {
       td, th { 
         color: darken($baseColor, 10%);
         padding: $padding; 
+
+        &:first-child {
+            text-align: left;
+        }
       }
       
       td {

@@ -19,12 +19,12 @@
   <div class="table-header">Taggers</div>
   <table>
     <tr>
-      <th>Email</th>
+      <th>Username</th>
       <th>Assigned</th>
       <th>Responded</th>
     </tr>
     <tr *ngFor="let subscription of activeProjectSubscriptions">
-      <td>{{subscription.CorpusTaggerEmail}}</td>
+      <td>{{subscription.CorpusTaggerUsername}}</td>
       <td>{{subscription.AssignedCorpusDocumentCount}}</td>
       <td>{{subscription.RespondedCorpusDocumentCount}}</td>
     </tr>

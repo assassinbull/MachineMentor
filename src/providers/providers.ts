@@ -5,6 +5,7 @@ import { User } from './user/user';
 import { TagResponse } from './tag-response/tag-response';
 import { CorpusTag } from './corpus-tag/corpus-tag';
 import { CorpusDocument } from './corpus-document/corpus-document';
+import { Common } from './common/common';
 
 export {
     Api,
@@ -13,5 +14,6 @@ export {
     User,
     TagResponse,
     CorpusTag,
-    CorpusDocument
+    CorpusDocument,
+    Common
 };
