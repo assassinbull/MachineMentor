@@ -33,6 +33,8 @@ export class ContentPage {
               if (resp.Status == 'success') {
                 this.navCtrl.push(MainPage);
               }
+            }, (err) => {
+              this.navCtrl.push(FirstRunPage);
             });
           } else {
             this.navCtrl.push(FirstRunPage);
