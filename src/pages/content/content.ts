@@ -45,6 +45,6 @@ export class ContentPage {
       }
       else
         this.navCtrl.push(FirstRunPage);
-    }, 3000);
+    }, 2000);
   }
 }
