@@ -32,6 +32,8 @@ export class ContentPage {
             this.user.login(account).subscribe((resp: any) => {
               if (resp.Status == 'success') {
                 this.navCtrl.push(MainPage);
+              } else {
+                this.navCtrl.push(FirstRunPage);
               }
             }, (err) => {
               this.navCtrl.push(FirstRunPage);

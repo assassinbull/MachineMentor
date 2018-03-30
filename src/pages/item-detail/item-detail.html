@@ -16,12 +16,12 @@
     <p>{{(item.CorpusTargetCompletionPercentage * 100).toFixed(2)}}% / {{item.TargetCorpusDocumentAssignmentCount}}</p>
   </div>
 
-  <div class="table-header">Taggers</div>
+  <div class="table-header">{{ 'TAGGERS' | translate }}</div>
   <table>
     <tr>
-      <th>Username</th>
-      <th>Assigned</th>
-      <th>Responded</th>
+      <th>{{ 'USERNAME' | translate }}</th>
+      <th>{{ 'ASSIGNED' | translate }}</th>
+      <th>{{ 'RESPONDED' | translate }}</th>
     </tr>
     <tr *ngFor="let subscription of activeProjectSubscriptions">
       <td>{{subscription.CorpusTaggerUsername}}</td>

@@ -17,18 +17,36 @@
   "TUTORIAL_SKIP_BUTTON": "Skip",
   "TUTORIAL_CONTINUE_BUTTON": "Continue",
 
-  "TUTORIAL_SLIDE1_TITLE": "Welcome to the Ionic Super Starter",
-  "TUTORIAL_SLIDE1_DESCRIPTION": "The <b>Ionic Super Starter</b> is a fully-featured Ionic starter with many pre-built pages and best practices.",
+  "TUTORIAL_SLIDE_START_TITLE": "Welcome to Machine Mentor App",
+  "TUTORIAL_SLIDE_START_DESCRIPTION": "<b>Machine Mentor App</b> is a simple and fast manual data annotation tool.",
 
-  "TUTORIAL_SLIDE2_TITLE": "How to use the Super Starter",
-  "TUTORIAL_SLIDE2_DESCRIPTION": "Assemble the various page types you want and remove the ones you don't. We've provided many common mobile app page layouts, like login and signup pages, tabs, and this tutorial page.",
+  "TUTORIAL_SLIDE1_TITLE": "Start with signing-up",
+  "TUTORIAL_SLIDE1_DESCRIPTION": "Provide your email and username.",
 
-  "TUTORIAL_SLIDE3_TITLE": "Getting Started",
-  "TUTORIAL_SLIDE3_DESCRIPTION": "Need help? Check out the Super Starter README for a full tutorial",
+  "TUTORIAL_SLIDE2_TITLE": "Wait for account approval",
+  "TUTORIAL_SLIDE2_DESCRIPTION": "During alpha test phase, authentication is made manually.",
 
-  "TUTORIAL_SLIDE4_TITLE": "Ready to Play?",
+  "TUTORIAL_SLIDE3_TITLE": "Time to log-in",
+  "TUTORIAL_SLIDE3_DESCRIPTION": "You can log-in after your account is approved.",
 
-  "WELCOME_INTRO": "The starting point for your next great Ionic app",
+  "TUTORIAL_SLIDE4_TITLE": "Browse active projects",
+  "TUTORIAL_SLIDE4_DESCRIPTION": "Active projects are listed here.",
+
+  "TUTORIAL_SLIDE5_TITLE": "Subscribe to a project",
+  "TUTORIAL_SLIDE5_DESCRIPTION": "Subscribe easily by sliding left.",
+
+  "TUTORIAL_SLIDE6_TITLE": "Start tagging",
+  "TUTORIAL_SLIDE6_DESCRIPTION": "Slide left again to start tagging available documents.",
+
+  "TUTORIAL_SLIDE7_TITLE": "Choose a proper tag",
+  "TUTORIAL_SLIDE7_DESCRIPTION": "You should read carefully and choose the most suitable tag for the text.",
+
+  "TUTORIAL_SLIDE8_TITLE": "Modify your choice",
+  "TUTORIAL_SLIDE8_DESCRIPTION": "Dont worry! You can change your mind. Just swipe right or left.",
+
+  "TUTORIAL_SLIDE_END_TITLE": "Ready?",
+
+  "WELCOME_INTRO": "You can start from here",
 
   "SETTINGS_TITLE": "Settings",
   "SETTINGS_OPTION1": "Option 1",
@@ -49,7 +67,7 @@
   "SIGNUP_ERROR": "Unable to create account. Please check your account information and try again.",
   "SIGNUP_BUTTON": "Sign up",
 
-  "LIST_MASTER_TITLE": "Items",
+  "LIST_MASTER_TITLE": "Projects",
 
   "ITEM_CREATE_TITLE": "New Item",
   "ITEM_CREATE_CHOOSE_IMAGE": "Add Image",
@@ -68,6 +86,11 @@
 
   "SUBSCRIBE_PROJECT": "SUBSCRIBE",
   "START_TAGGING": "START",
-  "SETTINGS_SKIP-UNRESPONDED-DOCUMENT": "Skip Unresponded",
-  "SETTINGS_AUTO-LOGIN": "Auto Login"
+  "SETTINGS_SKIP_UNRESPONDED_DOCUMENT": "Skip Unresponded",
+  "SETTINGS_AUTO_LOGIN": "Auto Login",
+  "ASSIGNED": "Assigned",
+  "RESPONDED": "Responded",
+  "TAGGERS": "Taggers",
+  "FERFRESHING": "Refreshing...",
+  "PULL_TO_REFRESH": "Pull to refresh"
 }

@@ -47,7 +47,7 @@ export class TagResponsePage {
 
           this.loadDocumentAndTags();
         } else {
-          this.navCtrl.push(MainPage);
+          //this.navCtrl.push(MainPage);
         }
       });
   }
@@ -90,7 +90,7 @@ export class TagResponsePage {
 
           this.loadDocumentAndTags();
         } else {
-          this.navCtrl.push(MainPage);
+          //this.navCtrl.push(MainPage);
         }
       });
   }
@@ -103,7 +103,7 @@ export class TagResponsePage {
 
           this.loadDocumentAndTags();
         } else {
-          this.navCtrl.push(MainPage);
+          //this.navCtrl.push(MainPage);
         }
       });
   }

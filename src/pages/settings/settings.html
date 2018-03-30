@@ -11,12 +11,12 @@
   <form [formGroup]="form" *ngIf="settingsReady">
     <ion-list *ngIf="page == 'main'">
       <ion-item>
-        <ion-label>{{ 'SETTINGS_SKIP-UNRESPONDED-DOCUMENT' | translate }}</ion-label>
+        <ion-label>{{ 'SETTINGS_SKIP_UNRESPONDED_DOCUMENT' | translate }}</ion-label>
         <ion-toggle formControlName="skipUnrespondedDocument"></ion-toggle>
       </ion-item>
 
       <ion-item>
-        <ion-label>{{ 'SETTINGS_AUTO-LOGIN' | translate }}</ion-label>
+        <ion-label>{{ 'SETTINGS_AUTO_LOGIN' | translate }}</ion-label>
         <ion-toggle formControlName="autoLogin"></ion-toggle>
       </ion-item>
 

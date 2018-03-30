@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title *ngIf="corpusDocumentModel">{{ corpusDocumentModel.Key }}</ion-title>
+    <ion-title *ngIf="corpusDocumentModel">{{ corpusDocumentModel.Id }} : {{ corpusDocumentModel.Key }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -9,7 +9,7 @@
 <ion-content padding>
   <div (swipeRight)="iterateBackwardsTagResponse()" (swipeLeft)="iterateForwardTagResponse()" style="width:100%;height:100%;">
     <h2 id="tag-heading1" *ngIf="corpusDocumentModel" style="color:#0B7F8F;">
-      {{ corpusDocumentModel.Text }}
+        {{ corpusDocumentModel.Text }}
     </h2>
   </div>
 </ion-content>
