@@ -5,8 +5,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { User } from '../../providers/providers';
 import { Common } from '../../providers/providers';
-import { MainPage } from '../pages';
-import { LoginPage } from '../login/login';
 
 @IonicPage()
 @Component({

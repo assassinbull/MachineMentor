@@ -10,12 +10,36 @@
   "TAB2_TITLE": "Arama",
   "TAB3_TITLE": "Ayarlar",
   "MAP_TITLE": "Harita",
-  "TUTORIAL_SLIDE1_TITLE": "Ionic Super Starter'a Hoşgeldin",
-  "TUTORIAL_SLIDE1_DESCRIPTION": "<b>Ionic Super Starter</b> hazırlanmış sayfalar ve çok iyi örneklerle tam donanımlı bir başlangıç paketidir.",
-  "TUTORIAL_SLIDE2_TITLE": "Super Starter Nasıl Kullanılır?",
-  "TUTORIAL_SLIDE2_DESCRIPTION": "İstediğiniz çeşitte sayfa oluşturun ya da istemediklerinizi kaldırın. Biz sadece giriş ve kayıt sayfası, tab gibi yaygın sayfaları ve bu anlatım sayfasını hazırladık.",
-  "TUTORIAL_SLIDE3_TITLE": "Başlangıç",
-  "TUTORIAL_SLIDE3_DESCRIPTION": "Yardım mı lazım? Super Starter README dosyasını inceleyebilirsin.",
+  
+  "TUTORIAL_SLIDE_START_TITLE": "Machine Mentor App'e hoşgeldin",
+  "TUTORIAL_SLIDE_START_DESCRIPTION": "<b>Machine Mentor App</b> basit ve hızlı bir manuel veri etiketleme aracıdır.",
+
+  "TUTORIAL_SLIDE1_TITLE": "Kayıt olarak başla",
+  "TUTORIAL_SLIDE1_DESCRIPTION": "Email ve kullanıcı adını vermen yeterli.",
+
+  "TUTORIAL_SLIDE2_TITLE": "Hesabının onaylanmasını bekle",
+  "TUTORIAL_SLIDE2_DESCRIPTION": "Alfa testi aşamasında, yetkilendirme manuel yapılacaktır.",
+
+  "TUTORIAL_SLIDE3_TITLE": "Şimdi giriş yap",
+  "TUTORIAL_SLIDE3_DESCRIPTION": "Hesabın onaylandıktan sonra uygulamaya giriş yapabilirsin.",
+
+  "TUTORIAL_SLIDE4_TITLE": "Aktif projelere gözat",
+  "TUTORIAL_SLIDE4_DESCRIPTION": "Aktif projeler burada listelenir.",
+
+  "TUTORIAL_SLIDE5_TITLE": "Bir projeye katıl",
+  "TUTORIAL_SLIDE5_DESCRIPTION": "Sola kaydırarak katılabilirsin.",
+
+  "TUTORIAL_SLIDE6_TITLE": "Etiketlemeye başla",
+  "TUTORIAL_SLIDE6_DESCRIPTION": "Mevcut dokümanları etiketlemek için tekrar sola kaydır.",
+
+  "TUTORIAL_SLIDE7_TITLE": "Uygun bir etiket seç",
+  "TUTORIAL_SLIDE7_DESCRIPTION": "Metni dikkatlice okuyarak en uygun etiketi seçmelisin.",
+
+  "TUTORIAL_SLIDE8_TITLE": "Seçimini düzenle",
+  "TUTORIAL_SLIDE8_DESCRIPTION": "Merak etme! Fikrini değiştirebilirsin. Sağa veya sola kaydırman yeterli.",
+
+  "TUTORIAL_SLIDE_END_TITLE": "Hazır mısın?",
+
   "SETTINGS_TITLE": "Ayarlar",
   "SETTINGS_OPTION1": "Seçenek 1",
   "SETTINGS_OPTION2": "Seçenek 2",
@@ -29,14 +53,24 @@
   "SIGNUP_TITLE": "Kayıt ol",
   "SIGNUP_ERROR": "Hesap oluşturulamadı. Lütfen hesap bilgilerinizi kontrol edip tekrar deneyin.",
   "SIGNUP_BUTTON": "Kayıt ol",
-  "LIST_MASTER_TITLE": "Öğeler",
+  "LIST_MASTER_TITLE": "Projeler",
   "ITEM_CREATE_TITLE": "Yeni Öğe",
   "ITEM_CREATE_CHOOSE_IMAGE": "Yeni Görsel",
   "CARDS_TITLE": "Sosyal",
   "SEARCH_TITLE": "Arama",
+    
+  "TUTORIAL_SKIP_BUTTON": "Geç",
+  "TUTORIAL_CONTINUE_BUTTON": "Devam et",
+  "WELCOME_INTRO": "Buradan başlayabilirsin",
+  "USERNAME": "Kullanıcı",
   
   "START_TAGGING": "BAŞLA",
-  "SUBSCRIBE_PROJECT": "ÜYE OL",
-  "SETTINGS_SKIP-UNRESPONDED-DOCUMENT": "Cevapsızları Geç",
-  "SETTINGS_AUTO-LOGIN": "Otomatik Login"
+  "SUBSCRIBE_PROJECT": "KATIL",
+  "SETTINGS_SKIP_UNRESPONDED_DOCUMENT": "Cevapsızları Geç",
+  "SETTINGS_AUTO_LOGIN": "Otomatik Login",
+  "ASSIGNED": "Atanan",
+  "RESPONDED": "Cevaplanan",
+  "TAGGERS": "Etiketçiler",
+  "FERFRESHING": "Yenileniyor...",
+  "PULL_TO_REFRESH": "Yenilemek için çekin"
 }
