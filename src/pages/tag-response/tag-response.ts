@@ -75,7 +75,7 @@ export class TagResponsePage {
     this.tagResponseModel.CorpusTagId = tagId;
     this.tagResponse.submitResponse(this.tagResponseModel).subscribe((resp: any) => {
       if (resp.Status == 'success')
-        this.fetchNextTagResponse();
+        this.iterateForwardTagResponse();
       else {
         this.common.popToastErrResp(resp);
       }
