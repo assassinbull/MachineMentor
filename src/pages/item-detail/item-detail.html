@@ -19,12 +19,14 @@
   <div class="item-detail" style="text-align: left;">
     <h4>{{item.Description}}</h4>
     <p>{{item.HelpText}}</p>
-    <p id="tag-corpus" *ngFor="let tag of corpusTagsModel">
-      <button ion-button color="{{tag.Color}}" small>
-        <ion-icon name="{{tag.Icon}}"> {{tag.Tag}}</ion-icon>
-      </button>
-      {{tag.HelpText}}
-    </p>
+    <div *ngFor="let tag of corpusTagsModel">
+      <p>
+        <button ion-button color="{{tag.Color}}" small>
+          <ion-icon name="{{tag.Icon}}"> {{tag.Tag}}</ion-icon>
+        </button>
+      </p>
+      <p>{{tag.HelpText}}</p>
+    </div>
   </div>
 
   <div class="table-header">{{ 'MENTORS' | translate }}</div>
