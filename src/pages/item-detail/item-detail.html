@@ -7,13 +7,26 @@
 </ion-header>
 
 
-<ion-content>
-  <div class="item-profile" text-center #profilePic style="background-image: url('https://cdn4.iconfinder.com/data/icons/science-and-technology-1-17/65/28-512.png');">
-  </div>
+<ion-content padding>
+  <!-- <div class="item-profile" text-center #profilePic style="background-image: url('https://cdn4.iconfinder.com/data/icons/science-and-technology-1-17/65/28-512.png');">
+  </div> -->
 
-  <div class="item-detail">
+  <!-- <div class="item-detail">
     <h4>{{item.Description}}</h4>
     <p>{{(item.CorpusTargetCompletionPercentage * 100).toFixed(2)}}% / {{item.TargetCorpusDocumentAssignmentCount}}</p>
+  </div> -->
+
+  <div class="item-detail" style="text-align: left;">
+    <h4>{{item.Description}}</h4>
+    <p>{{item.HelpText}}</p>
+    <div *ngFor="let tag of corpusTagsModel">
+      <p>
+        <button ion-button color="{{tag.Color}}" small>
+          <ion-icon name="{{tag.Icon}}"> {{tag.Tag}}</ion-icon>
+        </button>
+      </p>
+      <p>{{tag.HelpText}}</p>
+    </div>
   </div>
 
   <div class="table-header">{{ 'MENTORS' | translate }}</div>
