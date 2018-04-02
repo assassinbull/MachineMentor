@@ -92,5 +92,8 @@
   "RESPONDED": "Responded",
   "MENTORS": "Mentors",
   "FERFRESHING": "Refreshing...",
-  "PULL_TO_REFRESH": "Pull to refresh"
+  "PULL_TO_REFRESH": "Pull to refresh",
+  "LIST_USER_TITLE": "Users",
+  "AUTHORIZE_USER": "Authorize",
+  "UNAUTHORIZE_USER": "Unauthorize"
 }

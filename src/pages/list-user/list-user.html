@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ 'LIST_USER_TITLE' | translate }}</ion-title>
+
+    <!-- <ion-buttons end>
+      <button ion-button icon-only (click)="addItem()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="refreshPage($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="{{ 'PULL_TO_REFRESH' | translate }}" refreshingSpinner="circles"
+      refreshingText="{{ 'FERFRESHING' | translate }}">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <ion-item-sliding *ngFor="let user of userList">
+      <button ion-item>
+        <ion-avatar item-start>
+          <ion-icon *ngIf="user.IsAuthorized == 0" name="close-circle" color="danger"></ion-icon>
+          <ion-icon *ngIf="user.IsAuthorized == 1" name="checkmark-circle" color="secondary"></ion-icon>
+        </ion-avatar>
+        <h2>{{user.Username}}</h2>
+        <p>{{user.Email}}</p>
+      </button>
+
+      <ion-item-options>
+        <button *ngIf="user.IsAuthorized == 0" ion-button color="secondary" (click)="authorizeUser(user)">
+          {{ 'AUTHORIZE_USER' | translate }}
+        </button>
+        <button *ngIf="user.IsAuthorized == 1" ion-button color="danger" (click)="unauthorizeUser(user)">
+          {{ 'UNAUTHORIZE_USER' | translate }}
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
