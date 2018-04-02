@@ -4,11 +4,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { Config, Nav, Platform } from 'ionic-angular';
 
+import { User } from '../providers/providers';
 import { SplashPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
 
 @Component({
-  template: `<ion-menu [content]="content">
+  template: `<ion-menu [content]="content" (ionOpen)="menuOpened()" (ionClose)="menuClosed()">
     <ion-header>
       <ion-toolbar>
         <ion-title>Pages</ion-title>
@@ -43,12 +44,12 @@ export class MyApp {
     // { title: 'Menu', component: 'MenuPage' },
     // { title: 'Search', component: 'SearchPage' },
     // { title: 'Tag Response', component: 'TagResponsePage' },
-    // { title: 'Settings', component: 'SettingsPage' }
+    // { title: 'Settings', component: 'SettingsPage' },    
   ]
 
   constructor(private translate: TranslateService, platform: Platform, settings: Settings
     , private config: Config, private statusBar: StatusBar
-    , private splashScreen: SplashScreen) {
+    , private splashScreen: SplashScreen, private user: User) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -88,5 +89,19 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  menuClosed() {
+  }
+
+  menuOpened() {
+    if (this.user._user) {
+      if (this.user._user.IsAdmin == 1 && !this.pages.find(x => x.title === 'Admin'))
+        this.pages.push({ title: 'Admin', component: 'ListUserPage' });
+      else if (this.user._user.IsAdmin != 1 && this.pages.find(x => x.title === 'Admin')) {
+        var indx = this.pages.indexOf(x => x.title === 'Admin');
+        this.pages.splice(indx, 1);
+      }
+    }
   }
 }

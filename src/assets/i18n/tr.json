@@ -72,5 +72,8 @@
   "RESPONDED": "Cevaplanan",
   "MENTORS": "Mentörler",
   "FERFRESHING": "Yenileniyor...",
-  "PULL_TO_REFRESH": "Yenilemek için çekin"
+  "PULL_TO_REFRESH": "Yenilemek için çekin",
+  "LIST_USER_TITLE": "Kullanıcılar",
+  "AUTHORIZE_USER": "Yetkilendir",
+  "UNAUTHORIZE_USER": "Yetki kaldır"
 }

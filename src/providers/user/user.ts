@@ -8,6 +8,20 @@ export class User {
 
   constructor(public api: Api, public storage: Storage) { }
 
+  listUsers() {
+    let seq = this.api.get('CorpusTagger').share();
+
+    seq.subscribe((res: any) => {
+      if (res.Status == 'success') {
+      } else {
+      }
+    }, err => {
+      console.error('ERROR', err);
+    });
+
+    return seq;
+  }
+
   /**
    * Send a POST request to our login endpoint with the data
    * the user entered on the form.
@@ -41,6 +55,19 @@ export class User {
       // If the API returned a successful response, mark the user as logged in
       if (res.Status == 'success') {
         this._loggedIn(res);
+      }
+    }, err => {
+      console.error('ERROR', err);
+    });
+
+    return seq;
+  }
+
+  update(user:any){
+    let seq = this.api.put('CorpusTagger', user).share();
+
+    seq.subscribe((res: any) => {
+      if (res.Status == 'success') {
       }
     }, err => {
       console.error('ERROR', err);
