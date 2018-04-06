@@ -1,18 +1,13 @@
 import { Injectable } from '@angular/core';
-import { ToastController } from 'ionic-angular';
+import { ToastController, LoadingController } from 'ionic-angular';
 
 import { Storage } from '@ionic/storage';
 
-/*
-  Generated class for the CommonProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class Common {
 
-  constructor(public toastCtrl: ToastController, public storage: Storage) {
+  constructor(public toastCtrl: ToastController, public storage: Storage
+    , public loadingCtrl: LoadingController) {
   }
 
   popToastErrResp(errResp: any) {
@@ -30,5 +25,41 @@ export class Common {
       position: 'top'
     });
     toast.present();
+  }
+
+  createLoading() {
+    let loading = this.loadingCtrl.create({
+      spinner: 'crescent',
+      duration: 30000
+    });
+
+    return loading;
+  }
+
+  presentLoading() {
+    let loading = this.loadingCtrl.create({
+      spinner: 'crescent',
+      duration: 30000
+    });
+
+    loading.present();
+
+    return loading;
+  }
+
+  presentLoadingCustom(textContent:string) {
+    let loading = this.loadingCtrl.create({
+      spinner: 'crescent',
+      content: textContent,
+      duration: 3000
+    });
+
+    loading.onDidDismiss(() => {
+      console.log('Dismissed loading');
+    });
+
+    loading.present();
+
+    return loading;
   }
 }

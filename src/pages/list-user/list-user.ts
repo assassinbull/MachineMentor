@@ -20,8 +20,10 @@ export class ListUserPage {
   }
 
   loadUsers() {
+    var loading = this.common.presentLoading();
     this.user.listUsers().subscribe((resp: any) => {
       this.userList = resp.Data;
+      loading.dismiss();
     }, (err) => {
     });
   }
@@ -32,20 +34,26 @@ export class ListUserPage {
   }
 
   authorizeUser(usr) {
+    var loading = this.common.presentLoading();
     usr.IsAuthorized = 1;
     this.user.update(usr).subscribe((resp: any) => {
       this.common.popToast("User authorization completed.");
+      loading.dismiss();
     }, (err) => {
       this.common.popToast("User authorization failed!");
+      loading.dismiss();
     });
   }
 
   unauthorizeUser(usr) {
+    var loading = this.common.presentLoading();
     usr.IsAuthorized = 0;
     this.user.update(usr).subscribe((resp: any) => {
       this.common.popToast("User unauthorization completed.");
+      loading.dismiss();
     }, (err) => {
       this.common.popToast("User unauthorization failed!");
+      loading.dismiss();
     });
   }
 }

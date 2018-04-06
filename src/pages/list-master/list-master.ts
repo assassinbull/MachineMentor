@@ -26,9 +26,11 @@ export class ListMasterPage {
   }
 
   loadProjectsForTagger() {
+    var loading = this.common.presentLoading();
     if (this.user._user)
       this.items.getProjects({ taggerId: this.user._user.Id }).subscribe((resp: any) => {
         this.currentItems = resp.Data;
+        loading.dismiss();
       }, (err) => {
       });
   }
@@ -75,12 +77,15 @@ export class ListMasterPage {
   }
 
   subscribeProject(item) {
+    var loading = this.common.presentLoading();
     this.items.subscribeProject({ corpusProjectId: item.Id, corpusTaggerId: this.user._user.Id }).subscribe((resp: any) => {
       this.common.popToast("Subscription completed.");
       this.loadProjectsForTagger();
+      loading.dismiss();
     }, (err) => {
       // Unable to subscribe
       this.common.popToast("Subscription failed!");
+      loading.dismiss();
     });
   }
 }

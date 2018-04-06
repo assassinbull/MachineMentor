@@ -23,30 +23,32 @@ export class ContentPage {
   ionViewDidEnter() {
     setTimeout(() => {
       //Do auto login
-      var settingValue: any = this.settings.getValue("autoLogin");
-      if (settingValue) {
-        this.storage.get('account').then((val) => {
-          if (val != null) {
-            let account = JSON.parse(val);
+      this.settings.getValue('autoLogin').then(loginVal => {
+        if (loginVal)
+          this.storage.get('account').then((accVal) => {
+            if (accVal != null) {
+              let account = JSON.parse(accVal);
 
-            this.user.login(account).subscribe((resp: any) => {
-              if (resp.Status == 'success') {
-                this.navCtrl.push(MainPage);
-              } else {
+              this.user.login(account).subscribe((resp: any) => {
+                if (resp.Status == 'success') {
+                  this.navCtrl.push(MainPage);
+                } else {
+                  this.navCtrl.push(FirstRunPage);
+                }
+              }, (err) => {
                 this.navCtrl.push(FirstRunPage);
-              }
-            }, (err) => {
+              });
+            } else {
               this.navCtrl.push(FirstRunPage);
-            });
-          } else {
+            }
+          }, (err) => {
             this.navCtrl.push(FirstRunPage);
-          }
-        }, (err) => {
+          });
+        else
           this.navCtrl.push(FirstRunPage);
-        });
-      }
-      else
+      }, err => {
         this.navCtrl.push(FirstRunPage);
+      });
     }, 2000);
   }
 }
