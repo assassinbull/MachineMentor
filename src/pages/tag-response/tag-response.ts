@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, MenuController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, MenuController, NavParams, Loading } from 'ionic-angular';
 
 import { CorpusTagModel } from '../../models/corpus-tag';
 import { TagResponse } from '../../providers/providers';
@@ -33,13 +33,14 @@ export class TagResponsePage {
 
   ionViewWillLeave() {
     this.menu.swipeEnable(true);
-   }
+  }
 
   ionViewWillEnter() {
     this.fetchNextTagResponse();
   }
 
   fetchNextTagResponse() {
+    var loading = this.common.presentLoading();
     this.tagResponse.getNext(this.item.Id, this.user._user.Id)
       .subscribe((resp: any) => {
         if (resp.Data) {
@@ -49,6 +50,7 @@ export class TagResponsePage {
         } else {
           //this.navCtrl.push(MainPage);
         }
+        loading.dismiss();
       });
   }
 
@@ -72,6 +74,7 @@ export class TagResponsePage {
   }
 
   submitTagResponse(tagId) {
+    var loading = this.common.presentLoading();
     this.tagResponseModel.CorpusTagId = tagId;
     this.tagResponse.submitResponse(this.tagResponseModel).subscribe((resp: any) => {
       if (resp.Status == 'success')
@@ -79,16 +82,20 @@ export class TagResponsePage {
       else {
         this.common.popToastErrResp(resp);
       }
+      loading.dismiss();
     });
   }
 
   iterateForwardTagResponse() {
+    var loading = this.common.presentLoading();
     this.tagResponse.getIteration(this.item.Id, this.user._user.Id, this.tagResponseModel.Id, 1)
       .subscribe((resp: any) => {
         if (resp.Data) {
           this.tagResponseModel = resp.Data;
 
           this.loadDocumentAndTags();
+
+          loading.dismiss();
         } else {
           //this.navCtrl.push(MainPage);
         }
@@ -96,12 +103,14 @@ export class TagResponsePage {
   }
 
   iterateBackwardsTagResponse() {
+    var loading = this.common.presentLoading();
     this.tagResponse.getIteration(this.item.Id, this.user._user.Id, this.tagResponseModel.Id, -1)
       .subscribe((resp: any) => {
         if (resp.Data) {
           this.tagResponseModel = resp.Data;
 
           this.loadDocumentAndTags();
+          loading.dismiss();
         } else {
           //this.navCtrl.push(MainPage);
         }
