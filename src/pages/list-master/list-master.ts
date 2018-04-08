@@ -32,7 +32,10 @@ export class ListMasterPage {
         this.currentItems = resp.Data;
         loading.dismiss();
       }, (err) => {
+        loading.dismiss();
       });
+    else
+      loading.dismiss();
   }
 
   refreshPage(refresher) {
