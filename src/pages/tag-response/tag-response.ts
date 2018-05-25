@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { IonicPage, NavController, MenuController, NavParams, Loading } from 'ionic-angular';
 
 import { CorpusTagModel } from '../../models/corpus-tag';
@@ -22,6 +23,7 @@ export class TagResponsePage {
   corpusDocumentModel: any;
 
   constructor(private menu: MenuController, public navCtrl: NavController, navParams: NavParams
+    , private domSanitizationService: DomSanitizer
     , items: Items, public user: User, public common: Common
     , public tagResponse: TagResponse, public corpusTag: CorpusTag, public corpusDocument: CorpusDocument) {
     this.item = navParams.get('item');
