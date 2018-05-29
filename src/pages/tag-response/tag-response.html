@@ -19,9 +19,11 @@
 <ion-footer>
   <ion-toolbar>
     <div id="tag-corpus" class="center" *ngIf="corpusTagsModel">
-      <button ion-button *ngFor="let tag of corpusTagsModel" color="{{tag.Color}}" (click)="submitTagResponse(tag.Id)" medium>
-        <ion-icon name="{{tag.Icon}}"> {{tag.Tag}}</ion-icon>
-      </button>
+      <ion-scroll style="width:100%;height:22vh;" scrollY="true">
+        <button ion-button *ngFor="let tag of corpusTagsModel" color="{{tag.Color}}" (click)="submitTagResponse(tag.Id)" small>
+          <ion-icon name="{{tag.Icon}}"> {{tag.Tag}}</ion-icon>
+        </button>
+      </ion-scroll>
     </div>
     <div class="spacer" style="width:100%;height:10px;" id="tag-spacer3"></div>
     <div id="tag-container3" class="center">
